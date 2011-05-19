@@ -1,0 +1,17 @@
+%h1 All stations
+
+%table
+  %tr
+    %th Name
+    %th Duration
+    %th
+
+  - @stations.each do |station|
+    %tr
+      %td= link_to station.name, station
+      %td= station.total_duration
+      %td= link_to 'Destroy', station, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Station', new_station_path

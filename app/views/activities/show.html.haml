@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Station:
+  = @activity.station.name
+%p
+  %b Stage:
+  = @activity.stage.name
+%p
+  %b Date:
+  = @activity.date
+%p
+  %b Start:
+  = @activity.start_formatted
+%p
+  %b stop:
+  = @activity.stop_formatted
+
+= link_to 'Edit', edit_activity_path(@activity)
+\|
+= link_to 'Back', activities_path

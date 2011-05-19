@@ -1,0 +1,15 @@
+%h1 All stages
+
+%table
+  %tr
+    %th Name
+    %th
+
+  - @stages.each do |stage|
+    %tr
+      %td= link_to stage.name, stage
+      %td= link_to 'Destroy', stage, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Stage', new_stage_path

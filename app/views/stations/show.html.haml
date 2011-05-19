@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @station.name
+
+- @activities = @station.activities
+
+= render 'activities/list'
+
+%br
+
+= link_to 'Edit', edit_station_path(@station)
+\|
+= link_to 'Back', stations_path
+\|
+= link_to 'New Activity', new_activity_path(:station_id => @station.id, :stage_id => @station.next_stage_id)

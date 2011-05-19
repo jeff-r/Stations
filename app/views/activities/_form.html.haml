@@ -1,0 +1,31 @@
+= form_for @activity do |f|
+  -if @activity.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@activity.errors.count, "error")} prohibited this activity from being saved:"
+      %ul
+        - @activity.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :station
+    = f.select :station_id, options_from_collection_for_select(Station.all, :id, :name)
+  .field
+    = f.label :stage
+    = f.text_field :stage
+  .field
+    = f.label :Now
+    = f.submit 'Now!', :value => 'now'
+  .field
+    = f.label :date
+    = f.date_select :date
+  .field
+    = f.label :start
+    = f.text_field :start
+  .field
+    = f.label :start
+    = f.datetime_select :start
+  .field
+    = f.label :stop
+    = f.datetime_select :stop
+  .actions
+    = f.submit 'Save'

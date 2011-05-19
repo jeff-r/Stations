@@ -1,0 +1,28 @@
+
+%table
+  %tr
+    %th Station
+    %th Stage
+    %th Date
+    %th start
+    %th Duration
+    %th Notes
+    %th
+    %th
+
+  - @activities.each do |activity|
+    %tr
+      %td= link_to activity.station.name, activity.station
+      %td= activity.stage.name
+      %td= activity.date_formatted
+      %td= activity.start_formatted
+      %td
+        - if activity.stop.nil?
+          = link_to 'Stop', stop_activity_path(activity)
+        - else
+          = activity.duration_as_string
+      %td= activity.notes
+      %td= link_to 'Edit', edit_activity_path(activity)
+      %td= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete
+
+
