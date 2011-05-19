@@ -11,7 +11,6 @@
   .field
     = f.label :station
     = f.select :station_id, options_from_collection_for_select(Station.all, :id, :name, @activity.station_id)
-    - puts "@activity: #{@activity.inspect}"
   .field
     = f.label :stage
     = f.select :stage_id,   options_from_collection_for_select(Stage.all, :id, :name, @activity.stage_id)

@@ -8,9 +8,6 @@ class Activity < ActiveRecord::Base
 
   def start_formatted= str
     start = DateTime.parse str
-    puts "****"
-    puts "str = #{str}"
-    puts "start = #{start}"
   end
   def start_formatted
     if running?
